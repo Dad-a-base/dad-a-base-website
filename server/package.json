@@ -3,8 +3,8 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "dev": "nodemon --watch ./ --ext ts --exec \"tsx index.ts\"",
-    "start": "node --enable-source-maps dist/index.js",
+    "dev": "nodemon --watch ./ --ext ts --exec \"tsx server.ts\"",
+    "start": "node --enable-source-maps dist/server.js",
     "build": "tsc -p tsconfig.json",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
