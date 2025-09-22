@@ -14,13 +14,14 @@ Location ./server
 The following contract was agreed between front-end and back-end teams
 
 Implement:
-`GET /api/jokes` -> Get a list of all jokes (up to potential unspecified limit)
-`POST /api/joke` -> Add a new joke
+
+* `GET /api/jokes` -> Get a list of all jokes (up to potential unspecified limit)
+*( `POST /api/joke` -> Add a new joke
 
 In case we change functionality
-`GET /api/joke` -> Hear a joke
-`PUT /api/joke/{id}` -> Fix a bad joke
-`DELETE /api/joke/{id}` -> Pretend that joke never existed
+* `GET /api/joke` -> Hear a joke
+* `PUT /api/joke/{id}` -> Fix a bad joke
+* `DELETE /api/joke/{id}` -> Pretend that joke never existed
 
 ### Rating
 - We have discussed adding ratings to jokes.
