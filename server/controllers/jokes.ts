@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 
 import { jokes } from '../db/index.js';
 
@@ -16,7 +16,7 @@ export async function dbSaveJoke(
   response: Response,
   next: NextFunction
 ) {
-  console.log(`joke: ${request.body}`);
+  console.log(`joke: ${JSON.stringify(request.body)}`);
   // Save to database
   response.locals.dbResponse = 'Joke (not really) saved to database.';
   next();

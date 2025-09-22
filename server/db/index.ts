@@ -5,13 +5,14 @@
 import { JokeType } from '../types.js';
 
 export const jokes: JokeType[] = [
-  { id: '1', text: 'Why dont programmers like nature? Too many bugs.' },
   {
-    id: '2',
-    text: 'Why do Java developers wear glasses? Because they dont see sharp.',
+    id: 'jarvis-unique-abcd',
+    text: 'How do you catch a unique rabbit? Unique up on it.',
+    source: 'Randall Jarvis',
   },
   {
-    id: '3',
-    text: 'How many programmers does it take to change a light bulb? None, its a hardware problem.',
+    id: 'jarvis-tame-efgh',
+    text: 'How do you catch a tame rabbit? Tame way!',
+    source: 'Randall Jarvis',
   },
 ];

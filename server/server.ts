@@ -4,9 +4,9 @@ import dotenv from 'dotenv';
 
 import apiRouter from './routes.js';
 
-const PORT = Number(process.env.PORT ?? 3000);
-
 dotenv.config();
+
+const PORT = Number(process.env.PORT ?? 3000);
 
 const app = express();
 app.use(express.json());
