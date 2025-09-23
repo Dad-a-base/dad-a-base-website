@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import JokeDemo from './JokesDemo';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,6 +17,7 @@ function App() {
         </p>
       </div>
       <p className="read-the-docs">We will decide on one :)</p>
+      <JokeDemo />
     </>
   );
 }
