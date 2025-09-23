@@ -8,7 +8,7 @@ export async function dbGetJokes(
   next: NextFunction
 ) {
   response.locals.jokes = jokes;
-  next();
+  return next();
 }
 
 export async function dbSaveJoke(
@@ -17,14 +17,14 @@ export async function dbSaveJoke(
   next: NextFunction
 ) {
   if (!request.body) {
-    next({
+    return next({
       log: `request.body is empty (no joke)`,
       message: { err: 'Joke not included in body' },
     });
   }
 
   if (!request.body.hasOwnProperty('joke')) {
-    next({
+    return next({
       log: `"joke" key not found in: request.body`,
       message: { err: 'body does not have "joke" key' },
     });
@@ -33,7 +33,7 @@ export async function dbSaveJoke(
   const joke = request.body.joke;
 
   if (!joke.text || !joke.source) {
-    next({
+    return next({
       log: `"joke" object does not have "text" and "source": ${JSON.stringify(joke)}`,
       message: {
         err: 'Invalid joke contents: "text" and "source" are required.',
@@ -42,5 +42,5 @@ export async function dbSaveJoke(
   }
   // Save to database
   response.locals.dbResponse = 'Joke (not really) saved to database.';
-  next();
+  return next();
 }
