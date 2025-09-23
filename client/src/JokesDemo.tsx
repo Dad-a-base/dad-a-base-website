@@ -1,5 +1,10 @@
-// client/src/JokeDemo.tsx
-import { useEffect, useState } from "react";
+/*
+ * This is dummy auto-generated React module
+ * to show the fetch from backend proxy is working
+ *
+ * This should be deleted
+ */
+import { useEffect, useState } from 'react';
 
 type Joke = {
   id?: string;
@@ -17,8 +22,8 @@ export default function JokeDemo() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("/api/jokes", {
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/jokes', {
+        headers: { 'Content-Type': 'application/json' },
       });
       if (!res.ok) throw new Error(`GET /api/jokes failed: ${res.status}`);
 
@@ -35,16 +40,16 @@ export default function JokeDemo() {
   }
 
   async function postSampleJoke() {
-    setPostStatus("Posting...");
+    setPostStatus('Posting...');
     setError(null);
     try {
-      const res = await fetch("/api/joke", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/joke', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           joke: {
-            text: "How do you catch a tame rabbit? Tame way!",
-            source: "Randall Jarvis",
+            text: 'How do you catch a tame rabbit? Tame way!',
+            source: 'Randall Jarvis',
           },
         }),
       });
@@ -55,7 +60,7 @@ export default function JokeDemo() {
       if (!res.ok) throw new Error(`POST /api/joke failed: ${res.status}`);
 
       const created: Joke = await res.json();
-      setPostStatus(`Created joke with id: ${created.id ?? "<no id>"}`);
+      setPostStatus(`Created joke with id: ${created.id ?? '<no id>'}`);
       fetchJokes();
     } catch (err) {
       setPostStatus(null);
@@ -68,11 +73,16 @@ export default function JokeDemo() {
   }, []);
 
   return (
-    <div style={{ fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif", padding: 16 }}>
+    <div
+      style={{
+        fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, sans-serif',
+        padding: 16,
+      }}
+    >
       <h2>Jokes Demo (TypeScript)</h2>
 
       <div style={{ marginBottom: 12 }}>
-        <button onClick={fetchJokes}>Reload Jokes</button>{" "}
+        <button onClick={fetchJokes}>Reload Jokes</button>{' '}
         <button onClick={postSampleJoke} style={{ marginLeft: 8 }}>
           Post Sample Joke
         </button>
@@ -80,16 +90,18 @@ export default function JokeDemo() {
 
       {loading && <div>Loading jokes…</div>}
       {postStatus && <div>{postStatus}</div>}
-      {error && <div style={{ color: "crimson", whiteSpace: "pre-wrap" }}>{error}</div>}
+      {error && (
+        <div style={{ color: 'crimson', whiteSpace: 'pre-wrap' }}>{error}</div>
+      )}
 
       <div style={{ marginTop: 8 }}>
         <h3>Fetched Jokes (raw)</h3>
         <pre
           style={{
-            background: "#f5f5f5",
-            border: "1px solid #e5e5e5",
+            background: '#f5f5f5',
+            border: '1px solid #e5e5e5',
             padding: 12,
-            overflowX: "auto",
+            overflowX: 'auto',
             maxHeight: 320,
           }}
         >
@@ -99,7 +111,8 @@ export default function JokeDemo() {
         <ul>
           {jokes.map((j) => (
             <li key={j.id ?? j.text}>
-              <strong>{j.id ?? "(no-id)"}</strong>: {j.text} — <em>{j.source}</em>
+              <strong>{j.id ?? '(no-id)'}</strong>: {j.text} —{' '}
+              <em>{j.source}</em>
             </li>
           ))}
         </ul>
