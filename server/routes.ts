@@ -16,7 +16,7 @@ apiRouter.get('/jokes', dbGetJokes, (_: Request, response: Response) => {
 
 // Add new joke
 apiRouter.post('/joke', dbSaveJoke, (_: Request, response: Response) => {
-  response.json(response.locals.dbResponse);
+  response.status(201).json(response.locals.dbResponse);
 });
 
 export default apiRouter;

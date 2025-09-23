@@ -1,3 +1,1 @@
-type JokeType = { id: string; text: string; source: string };
-
-export { JokeType };
+export type JokeType = { id: string; text: string; source: string };

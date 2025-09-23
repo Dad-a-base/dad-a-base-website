@@ -5,7 +5,6 @@
  * This should be deleted
  */
 import { useEffect, useState } from 'react';
-
 type Joke = {
   id?: string;
   text: string;
