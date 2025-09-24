@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 type Joke = { id: string; text: string };
 // ↓ Put these near your other utils
 const SAMPLE_JOKES = [
-  "I only know 25 letters of the alphabe. I don’t know y.",
+  "I only know 25 letters of the alphabet. I don’t know y.",
   "I used to be a baker, then I kneaded dough.",
   "I’m reading a book about anti-gravity. It’s impossible to put down.",
   "Why did the scarecrow get promoted? He was outstanding in his field.",
@@ -66,7 +66,11 @@ const Board: React.FC = () => {
       const data = await res.json();
       if (mounted.current) setJokes(normalizeJokes(data));
     } catch (e: any) {
-      if (mounted.current) setError(e?.message ?? "Failed to fetch jokes");
+      console.error("API failed, loading sample data:", e)
+      if (mounted.current) {
+         setJokes(normalizeJokes(SAMPLE_JOKES));
+         setError(` API unavailable (${e?.message}), showing sample data`);
+      }
     } finally {
       if (mounted.current) setLoading(false);
     }
