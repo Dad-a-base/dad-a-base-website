@@ -145,7 +145,7 @@ html, body, #root { width: 100%; margin: 0; }
   will-change: transform;
   backdrop-filter: blur(1px) saturate(1.1);
   animation-play-state: running;
-  animation-duration: 12s;
+  animation-duration: 8s;
 }
 
 .bubble:hover,
