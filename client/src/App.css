@@ -112,17 +112,17 @@ html, body, #root { width: 100%; margin: 0; }
 
 @keyframes floaty {
   0% {
-    transform: translate3d(0, 0, 0) scale(2);
+    transform: translate3d(0, 0, 0) scale(1.5);
     opacity: 0.05;
   }
   10% {
     opacity: 0.95;
   }
   50% {
-    transform: translate3d(12px, -55vh, 0) scale(2);
+    transform: translate3d(12px, -55vh, 0) scale(1.55);
   }
   100% {
-    transform: translate3d(-12px, -115vh, 0) scale(2);
+    transform: translate3d(-12px, -115vh, 0) scale(1.5);
     opacity: 0.75;
   }
 }
