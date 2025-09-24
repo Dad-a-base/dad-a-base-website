@@ -41,7 +41,7 @@ function decorateAsBubbles(jokes: Joke[]) {
     size: rand(90, 160),
     left: rand(0, 85),
     duration: rand(14, 28),
-    delay: rand(0, 14),
+    delay: rand(0, 2.5),
     hue: rand(180, 360),
   }));
 }
@@ -114,10 +114,9 @@ function addMockBubble(text?: string) {
       <div className="container">
         <div className="header">
           <div className="title">Dad-A-Base</div>
-          <button className="btn" onClick={fetchJokes} disabled={loading}>
+          <button className="btn btn-refresh" onClick={fetchJokes} disabled={loading}>
             {loading ? "Refreshing…" : "Refresh"}
           </button>
-            <button className="btn" onClick={loadSampleSet}>Load sample</button>
         </div>
 
         <div className="grid">
