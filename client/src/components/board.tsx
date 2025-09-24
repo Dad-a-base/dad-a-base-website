@@ -61,8 +61,8 @@ const Board: React.FC = () => {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch("/api/joke", { headers: { Accept: "application/json" } });
-      if (!res.ok) throw new Error(`GET /api/joke failed: ${res.status}`);
+      const res = await fetch("/api/jokes", { headers: { Accept: "application/json" } });
+      if (!res.ok) throw new Error(`GET /api/jokes failed: ${res.status}`);
       const data = await res.json();
       if (mounted.current) setJokes(normalizeJokes(data));
     } catch (e: any) {
@@ -97,7 +97,7 @@ function addMockBubble(text?: string) {
       const res = await fetch("/api/joke", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ text: newJoke.trim(), joke: newJoke.trim() }),
+        body: JSON.stringify({ joke: {text: newJoke.trim(), source: "aaron"} }),
       });
       if (!res.ok) throw new Error(`POST /api/joke failed: ${res.status}`);
       setNewJoke("");
