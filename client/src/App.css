@@ -1,10 +1,4 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
+html, body, #root { width: 100%; margin: 0; }
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +33,211 @@
 
 .read-the-docs {
   color: #888;
+}
+
+:root {
+  --bg: #0a0a0a;
+  --panel: #121212;
+  --muted: #9aa0a6;
+  --text: #f5f5f5;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+.board-root {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1.4fr 0.9fr;
+  }
+}
+
+/* Bubble wall */
+.wall {
+  position: relative;
+  height: 72vh;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #141414, #0a0a0a);
+}
+
+@keyframes floaty {
+  0% {
+    transform: translate3d(0, 0, 0) scale(2);
+    opacity: 0.05;
+  }
+  10% {
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate3d(12px, -55vh, 0) scale(2);
+  }
+  100% {
+    transform: translate3d(-12px, -115vh, 0) scale(2);
+    opacity: 0.75;
+  }
+}
+
+.bubble {
+  position: absolute;
+  bottom: -10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35),
+    inset 0 0 20px rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation-name: floaty;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  will-change: transform;
+  backdrop-filter: blur(1px) saturate(1.1);
+  animation-play-state: running;
+  animation-duration: 12s;
+}
+
+.bubble:hover,
+.bubble:focus-visible {
+  animation-play-state: paused;     
+  z-index: 3;                       
+  box-shadow: 0 10px 34px rgba(0,0,0,.45), inset 0 0 24px rgba(255,255,255,.22);
+  cursor: default;
+}
+
+.bubble span {
+  line-height: 1.1;
+  font-size: 13px;
+  padding: 6px;
+  word-break: break-word;
+}
+
+.bubble:hover span,
+.bubble:focus-visible span {
+  font-size: 18px;      
+  transform: scale(1.12);
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
+}
+
+/* Form panel */
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--panel);
+  padding: 20px;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 14px;
+  background: #0f0f0f;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 12px;
+  resize: vertical;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.submit {
+  background: #fff;
+  color: #111;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+}
+
+.error {
+  color: #fca5a5;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b3b3b3;
+}
+
+/* Make the text bigger while hovered (scale the inner span so we don't fight the transform anim) */
+.bubble span {
+  transition: transform 160ms ease, font-size 160ms ease, filter 160ms ease;
+  display: block;
+}
+
+.bubble:hover span,
+.bubble:focus-visible span {
+  font-size: 16px;      
+  transform: scale(1.12);
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,.25));
 }
